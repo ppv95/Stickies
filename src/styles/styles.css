@@ -1,0 +1,8 @@
+:root {
+  --purple: #42275a;
+  --brown: #734b6d;
+}
+
+body {
+  background: linear-gradient(--purple, --brown);
+}
