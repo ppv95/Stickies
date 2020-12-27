@@ -16,7 +16,7 @@ export const AppRouter = () => {
             <Switch>
                 <Route path="/login" component = {LoginScreen}/>
                 <Route path="/register" component = {RegisterScreen}/>
-                <Route path="/Note" component = {NotesScreen}/>
+                <Route path="/note" component = {NotesScreen}/>
                 <Router path = "/" component = {NotesApp} />
                 <Redirect to = "/login" />
             </Switch>

@@ -10,9 +10,10 @@ import { Button } from '../../styles/components/common/common'
 
 export const RegisterScreen = () => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // }
+  
     const [formValues, handleInputChange] = useForm({
       name: '',
       email: '',
@@ -28,7 +29,7 @@ export const RegisterScreen = () => {
             <StyledAuthContainer>
               <h2>Register</h2>
 
-              <form onSubmit = {handleSubmit}>
+              {/* <form onSubmit = {handleSubmit}> */}
 
               <AuthInput type = "text"
                name = "name"
@@ -66,7 +67,7 @@ export const RegisterScreen = () => {
 
             <Button
             >Login</Button>
-        </form>
+        {/* </form> */}
             <Link className = "link" to = "/login" >Already register?</Link>
             </StyledAuthContainer>
 

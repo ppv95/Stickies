@@ -14,6 +14,5 @@ h2{
     text-decoration: none;
     font-size: 14px;
     }
-
 }
 `

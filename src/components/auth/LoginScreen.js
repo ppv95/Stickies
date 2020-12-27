@@ -21,17 +21,13 @@ export const LoginScreen = () => {
         Swal.fire('Login','Succesfull login on the click','success'); 
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
-
     return (
         <div>
             <FormContainer>
             <StyledAuthContainer>
               <h2>Login</h2>
 
-            <form onSubmit = {handleSubmit} >
+            {/* <form onSubmit = {handleSubmit} > */}
 
               <AuthInput type = "text"
                name = "email"
@@ -54,7 +50,7 @@ export const LoginScreen = () => {
             <Button
             onClick = {handleLogin}
             >Login</Button>
-            </form>
+            {/* </form> */}
 
             <Link className = "link" to = "/register">Need around here? Join us</Link>
             </StyledAuthContainer>
