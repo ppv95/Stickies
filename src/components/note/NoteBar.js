@@ -4,8 +4,6 @@ import { Button } from '../../styles/components/common/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
-    
-
 const Container = styled.div`
 display:flex;
 height: 50px;
