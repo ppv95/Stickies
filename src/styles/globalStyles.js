@@ -15,4 +15,9 @@ h2{
     font-size: 14px;
     }
 }
+
+.note-title {
+    color: white;
+}
+
 `
