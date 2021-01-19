@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button } from '../../styles/components/common/common'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faGithubSquare } from '@fortawesome/free-brands-svg-icons'
+
+    
 
 const Container = styled.div`
 display:flex;
@@ -14,11 +18,16 @@ const GithubButton = styled(Button)`
 width: 100px;`
 
 export const NoteBar = () => {
+    
+    const handleGreetings = () => { 
+       window.open("https://github.com/ppv95/Stickies")
+    }
 
     return (
         <Container>
-            <GithubButton>
-                Source
+            <GithubButton onClick = {handleGreetings} >
+            <FontAwesomeIcon icon={faGithubSquare} size = "lg" />
+                Github
             </GithubButton>
         </Container>
     )
