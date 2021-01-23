@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+// import { Inputs } from '../../styles/components/common/common'
 
 const ModalDiv = styled.div`
     display: flex;
@@ -8,19 +9,30 @@ const ModalDiv = styled.div`
     flex-direction:column;
 `
 
-const ModalTextarea = styled.textarea`
-
+const ModalInput = styled.input`
+width: 800px;
+padding: 8px;
 `
 
-export const NoteModal = ({reason}) => {
+const ModalTextarea = styled.textarea`
+height: 150px;
+width: 800px;
+resize: none;
+margin-top:10px;
+`
+
+export const NoteModal = ({noteAction}) => {
     return (
         <div>
             <ModalDiv>
-                <h3 className = 'note-title'>{reason}</h3>
+                <h3 className = 'note-title'>{noteAction}</h3>
+           
+            <ModalInput type = 'text'
+            placeholder = "Title"
+            style = {{width: '800px'}}
+            />
 
-            <input type = 'text'/>
-            <textarea></textarea>
-
+           <ModalTextarea placeholder = "" />
             </ModalDiv>
         </div>
     )
