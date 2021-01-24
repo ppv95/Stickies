@@ -20,19 +20,19 @@ export const NotesScreen = () => {
     
     const [showModal, setshowModal] = useState(false);
 
-    const handleOpenModal = () =>{
+    const openModal = () =>{
         setshowModal(!showModal);
     }
     
     return (
         <>
        <NoteBar/>
-       <AddButton onClick = {handleOpenModal} >
+       <AddButton onClick = {openModal} >
         <FontAwesomeIcon icon={faPlus} /> ADD</AddButton>
 
              {
                  showModal &&
-                 <NoteModal reason = 'Add New Note' />
+                 <NoteModal reason = 'Add New Note' modalIsOpen = {showModal} />
              }
         <WelcomeParragh>Come on! <b>Create</b> a note </WelcomeParragh>
         </>
