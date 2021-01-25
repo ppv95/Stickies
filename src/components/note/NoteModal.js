@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Button, Inputs } from '../../styles/components/common/common';
 import Modal from 'react-modal';
-
 
 const customStyles = {
     content : {
@@ -42,18 +41,19 @@ const SaveButton = styled.div(Button)
 
 export const NoteModal = ({modalIsOpen,noteAction}) => {
 
-    const closeModal = () => {
-        modalIsOpen = !modalIsOpen;
-        
+    const [isOpen, setcloseModal] = useState(modalIsOpen)
+    const handleCloseModal = () => {
+        setcloseModal(!isOpen);
     }
 
     return (
         <div>
         <Modal
-        isOpen = {modalIsOpen}
+        isOpen = {isOpen}
         contentLabel = {noteAction}
         ariaHideApp={false}
         style = {customStyles}
+        onRequestClose = {handleCloseModal}
         >
         <ModalDiv>
         <h3 className = 'note-title'>{noteAction}</h3>
@@ -65,9 +65,10 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
 
            <ModalTextarea placeholder = "Description" />
 
-            <SaveButton>
+            <Button>
             Save
-            </SaveButton>
+            </Button>
+            
         </ModalDiv> 
         </Modal>       
         </div>
