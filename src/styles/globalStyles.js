@@ -16,8 +16,8 @@ h2{
     }
 }
 
-.note-title {
-    color: white;
+.modal{
+    
 }
 
 `

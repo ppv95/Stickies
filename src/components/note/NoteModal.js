@@ -1,19 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Button, Inputs } from '../../styles/components/common/common';
-import Modal from 'react-modal';
-
-const customStyles = {
-    content : {
-      top           : '50%',
-      left          : '50%',
-      right         : 'auto',
-      bottom        : 'auto',
-      marginRight   : '-50%',
-      transform     :'translate(-50%, -50%)',
-      
-    }
-  };
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
 
 const ModalDiv = styled.div`
     display: flex;
@@ -21,11 +10,14 @@ const ModalDiv = styled.div`
     align-items: center;
     flex-direction:column;
     background-color:white;
-    width: 1000px;
+    
 `
 const ModalInput = styled.input`
-width: 800px;
-padding: 8px;
+width: 100px;
+padding: 10px;
+
+
+
 `
 
 const ModalTextarea = styled.textarea`
@@ -36,39 +28,26 @@ margin-top:10px;
 Padding: 8px;
 `
 
-const SaveButton = styled.div(Button)
-
-
 export const NoteModal = ({modalIsOpen,noteAction}) => {
 
     const [isOpen, setcloseModal] = useState(modalIsOpen)
-    const handleCloseModal = () => {
-        setcloseModal(!isOpen);
-    }
+    const handleCloseModal = () => setcloseModal(!isOpen);
 
     return (
         <div>
         <Modal
-        isOpen = {isOpen}
-        contentLabel = {noteAction}
-        ariaHideApp={false}
-        style = {customStyles}
-        onRequestClose = {handleCloseModal}
+        open = {isOpen}
+        onClose = {handleCloseModal}
+        contentLabel = {noteAction} 
+        center
         >
         <ModalDiv>
-        <h3 className = 'note-title'>{noteAction}</h3>
-           
-            <ModalInput type = 'text'
-            placeholder = "Title"
-            style = {{width: '800px'}}
-            />
 
-           <ModalTextarea placeholder = "Description" />
+            <h3>{noteAction}</h3>
+            <ModalInput type = 'text' placeholder = "Title" style = {{width: '800px'}}/>
+            <ModalTextarea placeholder = "Description" />
+            <Button>Save</Button>
 
-            <Button>
-            Save
-            </Button>
-            
         </ModalDiv> 
         </Modal>       
         </div>
