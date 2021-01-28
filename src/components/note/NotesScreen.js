@@ -32,7 +32,7 @@ export const NotesScreen = () => {
 
              {
                  showModal &&
-                 <NoteModal reason = 'Add New Note' modalIsOpen = {showModal} />
+                 <NoteModal noteAction = 'Add New Note' modalIsOpen = {showModal} />
              }
         <WelcomeParragh>Come on! <b>Create</b> a note </WelcomeParragh>
         </>

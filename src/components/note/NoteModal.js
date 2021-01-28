@@ -1,23 +1,22 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Button, Inputs } from '../../styles/components/common/common';
+import { Button, } from '../../styles/components/common/common';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
+
+// Inputs
 
 const ModalDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction:column;
-    background-color:white;
-    
+    padding: 20px;
+   
 `
 const ModalInput = styled.input`
 width: 100px;
 padding: 10px;
-
-
-
 `
 
 const ModalTextarea = styled.textarea`
@@ -27,6 +26,10 @@ resize: none;
 margin-top:10px;
 Padding: 8px;
 `
+
+const SaveButton = styled(Button)`
+width: 60px;
+`       
 
 export const NoteModal = ({modalIsOpen,noteAction}) => {
 
@@ -38,17 +41,19 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
         <Modal
         open = {isOpen}
         onClose = {handleCloseModal}
-        contentLabel = {noteAction} 
+        classNames = {{
+            overlay: 'customOverlay',
+            modal: 'customModal',
+        }} 
         center
         >
         <ModalDiv>
 
-            <h3>{noteAction}</h3>
+            <h2>{noteAction}</h2>
             <ModalInput type = 'text' placeholder = "Title" style = {{width: '800px'}}/>
             <ModalTextarea placeholder = "Description" />
-            <Button>Save</Button>
-
         </ModalDiv> 
+        <SaveButton>Save</SaveButton>
         </Modal>       
         </div>
     )
