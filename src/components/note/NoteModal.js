@@ -50,6 +50,7 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
         <ModalDiv>
 
             <h2>{noteAction}</h2>
+            <hr/>
             <ModalInput type = 'text' placeholder = "Title" style = {{width: '800px'}}/>
             <ModalTextarea placeholder = "Description" />
         </ModalDiv> 
