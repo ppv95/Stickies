@@ -17,6 +17,11 @@ background-color:#CBBFB7;
 margin-top: 30px;
 width: 100px;
 `
+const StickyContainer = styled.div`
+flex-wrap: wrap; 
+display: flex;
+flex-direction: row;
+`
 
 const notesTest = [
     {id: 1,title: "Test Code",description: "I have to test my code",completed: false},
@@ -36,9 +41,12 @@ export const NotesScreen = () => {
         <>
        <NoteBar/>
 
+     <StickyContainer>
         {
             notesTest.map((note)=><NoteSticky {...note} />)
         }
+        </StickyContainer>
+
        <AddButton onClick = {openModal} >
 
         <FontAwesomeIcon icon={faPlus} /> ADD</AddButton> 
