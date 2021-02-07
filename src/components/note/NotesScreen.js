@@ -18,10 +18,10 @@ margin-top: 30px;
 width: 100px;
 `
 
-const Notes = [
-{id: 1,title: "Test Code",description: "I have to test my code",completed: false},
-{id: 2,title: "Buy beers",description: "Need to buy beer for the party",completed: false},
-{id: 3,title: "Learn Forex",description: "Need to get rich with Forex",completed: false}
+const notesTest = [
+    {id: 1,title: "Test Code",description: "I have to test my code",completed: false},
+    {id: 2,title: "Buy beers",description: "Need to buy beer for the party",completed: false},
+    {id: 3,title: "Learn Forex",description: "Need to get rich with Forex",completed: false}
 ]
 
 export const NotesScreen = () => {
@@ -35,9 +35,12 @@ export const NotesScreen = () => {
     return (
         <>
        <NoteBar/>
-       <NoteSticky/>
+
+        {
+            notesTest.map((note)=><NoteSticky {...note} />)
+        }
        <AddButton onClick = {openModal} >
-           
+
         <FontAwesomeIcon icon={faPlus} /> ADD</AddButton> 
              {
                  showModal &&

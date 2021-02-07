@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const NoteSticky = () => {
+export const NoteSticky = ({title, description, Completed}) => {
 
     const StickyContainer = styled.div`
     padding: 20px;
@@ -10,13 +11,15 @@ export const NoteSticky = () => {
     width: 200px;
     margin-top:20px;
     border-radius: 5px;
+    overflow: hidden;
     `  
+    
     return (
     <StickyContainer>
-        <h1>Note Sticky</h1>
+        <h3>{title}</h3>
         <hr/>
         <p>
-            Lorem Imsu
+            {description}   
         </p>
     </StickyContainer>
     )
