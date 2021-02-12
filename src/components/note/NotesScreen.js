@@ -6,6 +6,9 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Button } from '../../styles/components/common/common'
 import { NoteModal } from './NoteModal';
 import { NoteSticky } from './NoteSticky';
+import { useDispatch } from 'react-redux';
+import { loadNotes } from '../../actions/note';
+
 
 const WelcomeParragh = styled.p`
 color:#CBBFB7;
@@ -33,10 +36,14 @@ const notesTest = [
 
 export const NotesScreen = () => {
   
+    const dispatch = useDispatch();
+
     const [showModal, setshowModal] = useState(false);
     const openModal = () =>{
         setshowModal(!showModal);
     }
+    const NotesFromStore = dispatch(loadNotes())
+    console.log(NotesFromStore);
       
     return (
         <>
