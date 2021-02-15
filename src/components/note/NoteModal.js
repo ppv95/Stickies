@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Button, } from '../../styles/components/common/common';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
+import { useForm } from '../../hooks/useForm';
 
 // Inputs
 
@@ -36,6 +37,18 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
     const [isOpen, setcloseModal] = useState(modalIsOpen)
     const handleCloseModal = () => setcloseModal(!isOpen);
 
+    const [formValues,handleInputChange] = useForm({
+        title:'',
+        description: '',
+        completed: false
+    });
+    
+    const {title,description,completed} = formValues;
+
+    const handleOnSave = () => {
+        console.log(title,description);
+    }
+
     return (
         <div>
         <Modal
@@ -51,10 +64,21 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
 
             <h2>{noteAction}</h2>
             <hr/>
-            <ModalInput type = 'text' placeholder = "Title" style = {{width: '800px'}}/>
-            <ModalTextarea placeholder = "Description" />
+            <ModalInput type = 'text' 
+            placeholder = "Title"
+            value = {title}
+             onChange = {handleInputChange}
+             style = {{width: '800px'}}/>
+
+            <ModalTextarea placeholder = "Description"
+            value = {description}
+            onChange = {handleInputChange}
+             />
         </ModalDiv> 
-        <SaveButton>Save</SaveButton>
+
+        <SaveButton
+        onClick = {handleOnSave}
+        >Save</SaveButton>
         </Modal>       
         </div>
     )
