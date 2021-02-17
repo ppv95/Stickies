@@ -1,18 +1,22 @@
-import { store } from "../store/store"
 import { types } from "../types/types"
-
 
 export const loadNotes = () => {
     return{
-        type: types.loadNotes,
-        notes: store.getState()
+        type: types.loadNotes
     }
 }
 
 export const addNewNote = (note) => {
     return {
-        type: types.addNewNote,
-       
+        type: types.addNewNote, 
+        payload: note     
+    }
+}
+
+export const setActiveSticky = (note) => {
+    return{
+        type: types.setActiveSticky,
+        payload: note
     }
 }
 

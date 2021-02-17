@@ -8,5 +8,6 @@ export const types = {
     addNewNote: '[note] create note',
     updateNote: '[note] update note',
     deleteNote: '[note] delete note' ,
+    setActiveNote: '[note] active note ',
     loadNotes:  '[note] load note'
 }
