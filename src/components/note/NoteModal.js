@@ -43,7 +43,7 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
         completed: false
     });
     
-    const {title,description,completed} = formValues;
+    const {title,description} = formValues;
 
     const handleOnSave = () => {
         console.log(title,description);
