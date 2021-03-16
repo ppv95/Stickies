@@ -46,7 +46,7 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
     const {title,description} = formValues;
 
     const handleOnSave = () => {
-        console.log(title,description);
+       
     }
 
     return (
@@ -65,14 +65,16 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
             <h2>{noteAction}</h2>
             <hr/>
             <ModalInput type = 'text' 
-            placeholder = "Title"
             value = {title}
-             onChange = {handleInputChange}
-             style = {{width: '800px'}}/>
+            placeholder = "Title"
+            name = "title"
+            onChange = {handleInputChange}
+            style = {{width: '800px'}}/>
 
             <ModalTextarea placeholder = "Description"
-            value = {description}
-            onChange = {handleInputChange}
+                name = 'description'
+                value = {description}
+                onChange = {handleInputChange}
              />
         </ModalDiv> 
 
