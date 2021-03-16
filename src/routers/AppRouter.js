@@ -18,7 +18,7 @@ export const AppRouter = () => {
                 <Route path="/register" component = {RegisterScreen}/>
                 <Route exact path="/note" component = {NotesScreen}/>
                 <Router exact path = "/" component = {NotesApp} />
-                <Redirect to = "/note" />
+                <Redirect to = "/" />
             </Switch>
         </Router>
     )

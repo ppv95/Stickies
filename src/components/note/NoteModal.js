@@ -4,8 +4,9 @@ import { Button, } from '../../styles/components/common/common';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import { useForm } from '../../hooks/useForm';
-
-// Inputs
+import { addNewNote } from '../../actions/note';
+import Swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
 
 const ModalDiv = styled.div`
     display: flex;
@@ -34,6 +35,7 @@ width: 60px;
 
 export const NoteModal = ({modalIsOpen,noteAction}) => {
 
+    const dispatch = useDispatch();
     const [isOpen, setcloseModal] = useState(modalIsOpen)
     const handleCloseModal = () => setcloseModal(!isOpen);
 
@@ -46,7 +48,16 @@ export const NoteModal = ({modalIsOpen,noteAction}) => {
     const {title,description} = formValues;
 
     const handleOnSave = () => {
-       
+       if(title === ""){
+           Swal.fire('validation','Please fill the input','info');
+           return false;
+       }
+       const newNote = {
+           title,
+           description
+       }
+       dispatch( addNewNote(newNote) );
+       handleCloseModal();
     }
 
     return (
