@@ -7,8 +7,6 @@ import { Button } from '../../styles/components/common/common'
 import { NoteModal } from './NoteModal';
 import { NoteSticky } from './NoteSticky';
 import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
-// import { loadNotes } from '../../actions/note';
 
 
 const WelcomeParragh = styled.p`
@@ -29,15 +27,8 @@ display: flex;
 flex-direction: row;
 `
 
-// const notes = [
-//     // {id: 1,title: "Test Code",description: "I have to test my code",completed: false},
-//     // {id: 2,title: "Buy beers",description: "Need to buy beer for the party",completed: false},
-//     // {id: 3,title: "Learn Forex",description: "Need to get rich with Forex",completed: false}
-// ]
-
 export const NotesScreen = () => {
   
-   
     const {notes} = useSelector(state => state.note)
     const [showModal, setshowModal] = useState(false);
     const openModal = () =>{
@@ -50,7 +41,7 @@ export const NotesScreen = () => {
 
      <StickyContainer>
         {
-            notes.map((note)=><NoteSticky {...note} 
+            notes.map( (note) => <NoteSticky {...note} 
             key = {note.id} />)
         }
         </StickyContainer>

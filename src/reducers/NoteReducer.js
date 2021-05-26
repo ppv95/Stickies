@@ -1,7 +1,8 @@
 import { types } from "../types/types";
 
 const inititalState = {
-    notes : [ {id: 1, title: 'Play with react', description: 'Learn by building something', completed: false},
+    notes : [
+    {id: 1, title: 'Play with react', description: 'Learn by building something', completed: false},
     {id: 2, title: 'Play on the play', description: 'Beat the boss',completed: false},
     {id: 3, title: 'study cloud', description: 'to get certified',completed: false},
     {id: 4,title: "Test Code",description: "I have to test my code",completed: false},
@@ -21,7 +22,7 @@ export const NoteReducer = (state = inititalState,action) => {
          case types.addNewNote:
              return{
                  ...state,
-                 notes:[action.payload,...state.notes]
+                 notes:[...state.notes,action.payload]
              }
             case types.setActiveNote:
                 return{
