@@ -52,7 +52,7 @@ export const LoginScreen = () => {
             >Login</Button>
             {/* </form> */}
 
-            <Link className = "link" to = "/register">Need around here? Join us</Link>
+            <Link className = "link" to = "/register">New around here? Join us</Link>
             </StyledAuthContainer>
 
             </FormContainer>
