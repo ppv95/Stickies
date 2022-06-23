@@ -7,13 +7,25 @@ import { AuthInput,
     StyledAuthContainer } 
     from '../../styles/components/Auth/authStyle'
 import { Button } from '../../styles/components/common/common'
+import {firebase} from '../../firebase/firebase-config'
+import Swal from 'sweetalert2'
 
 export const RegisterScreen = () => {
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // }
-  
+    const handleRegister = () => {
+      console.log("clicked");
+      firebase.auth().createUserWithEmailAndPassword(email,password)
+      .then( (userCredential) => {
+        var user = userCredential.user;
+        console.log(user);
+
+      })
+      .catch((error) => {
+        Swal.fire('error',error.message,'error');
+        return false;
+      })
+    }
+
     const [formValues, handleInputChange] = useForm({
       name: '',
       email: '',
@@ -66,7 +78,9 @@ export const RegisterScreen = () => {
               />
 
             <Button
-            >Login</Button>
+            onClick = {handleRegister}
+            >Register
+           </Button>
         {/* </form> */}
             <Link className = "link" to = "/login" >Already register?</Link>
             </StyledAuthContainer>

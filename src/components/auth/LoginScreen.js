@@ -7,6 +7,8 @@ import { AuthInput,
     StyledAuthContainer } 
     from '../../styles/components/Auth/authStyle'
 import { Button } from '../../styles/components/common/common'
+import {firebase} from '../../firebase/firebase-config'
+ 
 
 export const LoginScreen = () => {
 
@@ -18,7 +20,17 @@ export const LoginScreen = () => {
     const {email,password} = formValues;
 
     const handleLogin = () =>{
-        Swal.fire('Login','Succesfull login on the click','success'); 
+
+        firebase.auth().signInWithEmailAndPassword(email,password)
+            .then( (userCredentials) => {
+                var user = userCredentials.user;
+                console.log('User logged in',user);
+                Swal.fire('Login','Succesfull login on the click','success'); 
+            })
+            .catch((error) =>{
+                const errorMessage = error.message;
+                Swal.fire('Error',errorMessage,'success');
+            })
     }
 
     return (
